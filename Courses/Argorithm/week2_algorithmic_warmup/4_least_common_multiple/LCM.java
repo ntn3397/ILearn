@@ -1,18 +1,30 @@
 import java.util.*;
 
 public class LCM {
-  private static long lcm_naive(int a, int b) {
-    for (long l = 1; l <= (long) a * b; ++l)
-      if (l % a == 0 && l % b == 0)
-        return l;
-
-    return (long) a * b;
+  private static long lcm_naive(long a, long b) {
+    long gcd = gcd_naive(a,b);
+    return (long)((long)(a*b)/gcd);
+  }
+  private static long gcd_naive(long a, long b) {
+    long remainder = 1;
+    while (true) {
+      if(a>b){
+        remainder = a%b;
+        if(remainder == 0) return b;
+        a = b;
+        b = remainder;
+      } else {
+        remainder = b%a;
+        if(remainder == 0) return a;
+        b = remainder;
+      }
+    }
   }
 
   public static void main(String args[]) {
     Scanner scanner = new Scanner(System.in);
-    int a = scanner.nextInt();
-    int b = scanner.nextInt();
+    long a = scanner.nextLong();
+    long b = scanner.nextLong();
 
     System.out.println(lcm_naive(a, b));
   }

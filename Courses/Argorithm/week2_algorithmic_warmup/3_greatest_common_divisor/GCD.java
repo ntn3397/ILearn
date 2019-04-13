@@ -2,16 +2,19 @@ import java.util.*;
 
 public class GCD {
   private static int gcd_naive(int a, int b) {
-    int current_gcd = 1;
-    for(int d = 2; d <= a && d <= b; ++d) {
-      if (a % d == 0 && b % d == 0) {
-        if (d > current_gcd) {
-          current_gcd = d;
-        }
+    int remainder = 1;
+    while (true) {
+      if(a>b){
+        remainder = a%b;
+        if(remainder == 0) return b;
+        a = b;
+        b = remainder;
+      } else {
+        remainder = b%a;
+        if(remainder == 0) return a;
+        b = remainder;
       }
     }
-
-    return current_gcd;
   }
 
   public static void main(String args[]) {
