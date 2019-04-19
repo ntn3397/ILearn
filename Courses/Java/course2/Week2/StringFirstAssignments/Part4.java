@@ -13,8 +13,8 @@ public class Part4 {
             String lowerS = s.toLowerCase();
             int indexYoutube = lowerS.indexOf("youtube.com");
             if(indexYoutube == -1) continue;
-            int leftQuote = lowerS.indexOf("\"");
-            int rightQuote = lowerS.lastIndexOf("\"");
+            int leftQuote = lowerS.lastIndexOf("\"",indexYoutube);
+            int rightQuote = lowerS.indexOf("\"",indexYoutube);
             String result = s.substring(leftQuote+1, rightQuote);
             System.out.println(result);
         }
