@@ -4,12 +4,38 @@ import java.io.*;
 public class MajorityElement {
     private static int getMajorityElement(int[] a, int left, int right) {
         if (left == right) {
-            return -1;
-        }
-        if (left + 1 == right) {
             return a[left];
         }
         //write your code here
+	int mid = left + (right - left) / 2;
+	int majorityLeft = getMajorityElement(a,left,mid);
+	int majorityRight = getMajorityElement(a, mid + 1, right);
+	int countMajorityLeft = 0;
+	int countMajorityRight = 0;
+	int n = (right - left + 1)/2;
+	if(majorityLeft != -1) {
+	    for(int i = left; i <= right; i++){
+		if(a[i] == majorityLeft) countMajorityLeft++;	
+	    }
+	}
+	
+	if(majorityRight != -1) {
+	    for(int i = left ; i <= right ; i++){
+		if(a[i] == majorityRight) countMajorityRight++;	 
+	    }	
+	}
+	
+	if(countMajorityLeft > countMajorityRight) {
+	    if(countMajorityLeft > n) return majorityLeft;	
+	}
+	else if(countMajorityRight > countMajorityLeft) {
+	    if(countMajorityRight > n) return majorityRight;	
+	}
+	else {
+	    if(majorityRight == majorityLeft) return majorityLeft;
+	    return -1;
+	} 
+	
         return -1;
     }
 
@@ -20,7 +46,7 @@ public class MajorityElement {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        if (getMajorityElement(a, 0, a.length) != -1) {
+        if (getMajorityElement(a, 0, a.length -1) != -1) {
             System.out.println(1);
         } else {
             System.out.println(0);

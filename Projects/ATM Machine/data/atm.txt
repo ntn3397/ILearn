@@ -1,0 +1,5 @@
+ATM ID: ATM1
+Bill 500k: 99971
+Bill 200k: 99998
+Bill 100k: 99998
+Bill 50k: 99998

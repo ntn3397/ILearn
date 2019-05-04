@@ -5,13 +5,39 @@ public class Sorting {
     private static Random random = new Random();
 
     private static int[] partition3(int[] a, int l, int r) {
-      //write your code here
+	int m1;
+	int m2 = r;	
+	//write your code here
+	int c = 0;
+	int x = a[r];
+	int j = l - 1;
+	for(int i = l; i < m2; i++) {
+	    if (a[i] < x) {
+		j++;
+		int t = a[i];
+		a[i] = a[j];
+		a[j] = t;
+	    } else if ( a[i] == x) {
+		m2--;
+		a[i] = a[m2];
+		a[m2] = x;
+		c++;
+		i--;
+	    }
+	}
+	m1 = j + 1;
+	int h = r - c;
 
+        for(int i = m1; i <= m1 + c; i++) {
+            a[h] = a[i];
+	    a[i] = x;
+	    h++;
+	}
+	
+	m2 = m1+c;
 
-      int m1 = l;
-      int m2 = r;
-      int[] m = {m1, m2};
-      return m;
+	int[] m = {m1, m2};
+	return m;
     }
 
     private static int partition2(int[] a, int l, int r) {
@@ -36,13 +62,15 @@ public class Sorting {
             return;
         }
         int k = random.nextInt(r - l + 1) + l;
-        int t = a[l];
-        a[l] = a[k];
+        int t = a[r];
+        a[r] = a[k];
         a[k] = t;
         //use partition3
-        int m = partition2(a, l, r);
-        randomizedQuickSort(a, l, m - 1);
-        randomizedQuickSort(a, m + 1, r);
+        //int m = partition2(a, l, r);
+	int[] m = new int[2];
+	m = partition3(a, l, r);
+        randomizedQuickSort(a, l, m[0] - 1);
+        randomizedQuickSort(a, m[1] + 1, r);
     }
 
     public static void main(String[] args) {

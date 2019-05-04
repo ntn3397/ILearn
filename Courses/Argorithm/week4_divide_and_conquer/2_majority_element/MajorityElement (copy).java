@@ -1,22 +1,15 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-public class BinarySearch {
-
-    static int binarySearch(int[] a, int left, int right, int x) {
-        //write your code here
-	if(right < left) return -1;
-	int mid = left + (right - left) / 2;
-	if(x == a[mid]) return mid;
-	if(x > a[mid]) return binarySearch(a, mid + 1, right, x);
-	if(x < a[mid]) return binarySearch(a, left, mid - 1, x);
-	return -1;
-    }
-
-    static int linearSearch(int[] a, int x) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == x) return i;
+public class MajorityElement {
+    private static int getMajorityElement(int[] a, int left, int right) {
+        if (left == right) {
+            return -1;
         }
+        if (left + 1 == right) {
+            return a[left];
+        }
+        //write your code here
         return -1;
     }
 
@@ -27,15 +20,10 @@ public class BinarySearch {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        int m = scanner.nextInt();
-        int[] b = new int[m];
-        for (int i = 0; i < m; i++) {
-          b[i] = scanner.nextInt();
-        }
-        for (int i = 0; i < m; i++) {
-            //replace with the call to binarySearch when implemented
-            //System.out.print(linearSearch(a, b[i]) + " ");
-	    System.out.print(binarySearch(a,0,a.length -1 , b[i]) + " ");
+        if (getMajorityElement(a, 0, a.length) != -1) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
         }
     }
     static class FastScanner {
@@ -66,3 +54,4 @@ public class BinarySearch {
         }
     }
 }
+
