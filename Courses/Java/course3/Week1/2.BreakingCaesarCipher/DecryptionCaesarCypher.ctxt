@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=DecryptionCaesarCypher
+comment0.text=\n\ Write\ a\ description\ of\ DecryptionCaesarCypher\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=message\ counts
+comment1.target=void\ countLetters(java.lang.String,\ int[])
+comment2.params=vals
+comment2.target=int\ maxIndex(int[])
+comment3.params=encrypted
+comment3.target=java.lang.String\ decrypt(java.lang.String)
+numComments=4
