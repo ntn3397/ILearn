@@ -1,0 +1,9 @@
+adjective:data/adjective.txt
+noun:data/noun.txt
+color:data/color.txt
+country:data/country.txt
+name:data/name.txt
+animal:data/animal.txt
+timeframe:data/timeframe.txt
+verb:data/verb.txt
+fruit:data/fruit.txt
